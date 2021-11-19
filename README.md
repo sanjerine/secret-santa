@@ -1,24 +1,11 @@
 # secret-santa
 
-## Project setup
-```
-npm install
-```
+## Overview
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Basically my attempt at learning vue (before starting any courses etc) as well as putting together a nice secret santa website for my friends :)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Deploying to github pages
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Just open local repo and run 
+  deploy
+  
