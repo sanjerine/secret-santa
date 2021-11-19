@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+  <title>secret santa</title>
+</head>
+<style>
+  body {
+    background-color: rgb(163, 162, 197);
+  }
+
+  h1 {
+  }
+
+  p {
+  }  
+</style>
+<script src="jsrand.min.js"></script>
+<body>
+  <h1>Secret Santa</h1>
+  <h3>How It Works</h3>
+  <p>Price limit is $30</p>
+  <p>Type in your name(as it appears in the list below) and get your secret santa :) don't cheat because thats not in the spoirit of chrristmas</p>
+  <p>My name is <input id="nameinp"><button onclick="getGiftee()">Get my giftee</button></p>
+  <p id="santa"></p>
+  <h3>Date & Location</h3>
+  <p>TBD: we probs do a poll in group chat closer to christmas</p>
+  <h3 id="players">all players</h3>
+  <ul id="lst">
+  </ul>
+  <img src="assets/luffy.jpg" alt="luffy">
+</body>
+<script>
+  const rnd = new Srand();
+  rnd.seed(1836504610);
+  // players
+  const players = ["Michael", "Dev", "Mark Ko", "Sarthak", "Louis", "Mehar", "Lachy", "Mark Sim",
+  "Matt Lim", "Parsa", "Natty", "Josh", "Kuan", "Sid", "Jordan", "Kishen", "Sanjee"];
+  let giftees = ["Michael", "Dev", "Mark Ko", "Sarthak", "Louis", "Mehar", "Lachy", "Mark Sim",
+  "Matt Lim", "Parsa", "Natty", "Josh", "Kuan", "Sid", "Jordan", "Kishen", "Sanjee"];
+  // render players into DOM
+  for (var i = 0; i < players.length; i++) {
+    let node = document.createElement('li');
+    let textnode = document.createTextNode(players[i]);
+    node.appendChild(textnode);
+    document.getElementById("lst").appendChild(node);
+  }
+  function isNotValid(array) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] == players[i]) {
+        return true;
+        }
+      return false;
+    }    
+  }
+  // generate randomized giftees
+  rnd.shuffle(giftees);
+  while (isNotValid(giftees)) {
+    rnd.shuffle(giftees);
+  }
+  function getGiftee() {
+    let name = document.getElementById("nameinp").value;
+    console.log(document.getElementById("nameinp").value);
+    if (players.includes(name)) {
+      let giftee = giftees[players.indexOf(name)];
+      document.getElementById("santa").innerHTML = "Your secret santa is " + "<b>" + giftee + "</b>!";   
+    }
+    else {
+      document.getElementById("santa").innerHTML = "Hey... you didn't type in your name right..."; 
+    }
+  }
+</script>
+</html>
