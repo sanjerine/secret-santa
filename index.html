@@ -25,7 +25,8 @@
   <p>My name is <input id="nameinp"><button onclick="getGiftee()">Get my giftee</button></p>
   <p id="santa"></p>
   <h3>Date & Location</h3>
-  <p>TBD: we probs do a poll in group chat closer to christmas</p>
+  <p>Date is TBD: we probs do a poll in group chat closer to christmas</p>
+  <p>Location is <b>Louis's House</b></p>
   <h3 id="players">all players</h3>
   <ul id="lst">
   </ul>
@@ -36,9 +37,9 @@
   rnd.seed(2842204520);
   // players
   const players = ["Michael", "Dev", "Mark Ko", "Sarthak", "Louis", "Mehar", "Lachy", "Mark Sim",
-  "Matt Lim", "Parsa", "Natty", "Josh", "Kuan", "Sid", "Jordan", "Kishen", "Sanjee", "Nathan"];
-  let giftees = ["Michael", "Dev", "Mark Ko", "Sarthak", "Louis", "Mehar", "Lachy", "Mark Sim",
-  "Matt Lim", "Parsa", "Natty", "Josh", "Kuan", "Sid", "Jordan", "Kishen", "Sanjee", "Nathan"];
+  "Matt Lim", "Parsa", "Natty", "Josh", "Kuan", "Sid", "Jordan", "Jeremy", "Sanjee", "Nathan", "Luke"];
+  let giftees = ["Josh", "Lachy", "Mehar", "Louis", "Sanjee", "Parsa", "Luke", "Sarthak", "Jeremy", "Mark Sim",
+"Natty", "Sid", "Mark Ko", "Matt Lim", "Kuan", "Nathan", "Michael", "Dev", "Jordan"];
   // render players into DOM
   for (var i = 0; i < players.length; i++) {
     let node = document.createElement('li');
@@ -46,13 +47,8 @@
     node.appendChild(textnode);
     document.getElementById("lst").appendChild(node);
   }
-  function isNotValid(array) {
-    for (var i = 0; i < array.length; i++) {
-      if (array[i] == players[i]) {
-        return true;
-        }
-      return false;
-    }    
+  if (players.length == giftees.length) {
+    console.log("xD");
   }
   // generate randomized giftees
   rnd.shuffle(giftees);
